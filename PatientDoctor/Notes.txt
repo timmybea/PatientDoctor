@@ -1,0 +1,9 @@
+A patient can request medication from the doctor. The patient will do this by calling requestMedication on the doctor instance. Only patients previously accepted by that doctor can ask for prescriptions. In order for the doctor to create and return a prescription to the patient, the doctor needs to know what symptoms the patient is currently experiencing. This will affect what is prescribed.
+
+Suggestion: While you could keep things simple and not define any other classes to accomplish this, you may want to consider what other objects are involved in this interaction.
+
+
+
+*-*-*-*-
+
+It can be a good practice to make an @class A declaration in the h file of class B so that it knows that class A exists, and then #import the h file of class A into the m file of class B so that you can access its properties in the methods you are writing.
