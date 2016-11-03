@@ -12,6 +12,7 @@
 @interface Doctor ()
 
 @property (nonatomic) NSMutableSet *acceptedPatients;
+@property (nonatomic) NSDictionary *sympTreatments;
 
 @end
 
@@ -21,7 +22,8 @@
     self = [super init];
     if (self) {
         _acceptedPatients = [[NSMutableSet alloc] init];
-        _appointmentBook = [[NSMutableArray alloc] init];
+        _appointmentBook = [[NSMutableSet alloc] init];
+        _sympTreatments = @{@"herpes": @"cream", @"fever" : @"icepack", @"vomitting": @"paper bag", @"rash" : @"make up"};
         _name = name;
         _specialization = specialization;
     }
@@ -51,13 +53,24 @@
 
     } else {
         if (patient.hasValidHealthCard == YES) {
-            NSLog(@"You may be added to my accepted patients and have an appointment");
+            NSLog(@"%@ may be added to my accepted patients and have an appointment", patient.name);
             [self.acceptedPatients addObject:patient];
             [self.appointmentBook addObject:patient.name];
             NSLog(@"AppointmentBook: %@", self.appointmentBook);
         } else {
-            NSLog(@"You don't have a valid health card and cannot be added to the list of patients");
+            NSLog(@"%@ doesn't have a valid health card and cannot be added to the list of patients", patient.name);
         }
+    }
+}
+
+-(void)treatPatient:(Patient*)patient {
+    if([self.appointmentBook containsObject:patient.name]) {
+        NSString *treatment = [self.sympTreatments objectForKey:patient.symptom];
+        [patient.allPrescriptions addObject: treatment];
+        NSLog(@"The treatment for %@ is %@", patient.symptom, treatment);
+        patient.symptom = nil;
+        [self.appointmentBook removeObject:patient.name];
+        NSLog(@"AppointmentBook: %@", self.appointmentBook);
     }
 }
 

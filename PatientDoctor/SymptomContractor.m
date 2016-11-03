@@ -14,7 +14,7 @@
 -(instancetype)init {
     self = [super init];
     if(self) {
-        _symptoms = @[@"fever", @"coughing", @"vomitting", @"bruises"];
+        _symptoms = @[@"herpes", @"fever", @"vomitting", @"rash"];
     }
     return self;
 }

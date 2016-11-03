@@ -14,12 +14,13 @@
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *specialization;
 @property (nonatomic) BOOL yourPatient;
-@property (nonatomic) NSMutableArray *appointmentBook;
+@property (nonatomic) NSMutableSet *appointmentBook;
 
 
 -(instancetype)initWithName:(NSString*)name AndSpecialization:(NSString*)specialization;
 -(void)askPatient:(Patient*)patient;
 -(void)makeAppointment:(Patient*)patient;
 -(BOOL)isYourPatient:(Patient*)patient;
+-(void)treatPatient:(Patient*)patient;
 
 @end

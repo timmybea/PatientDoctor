@@ -16,11 +16,14 @@ int main(int argc, const char * argv[]) {
         SymptomContractor *symptomContractor = [[SymptomContractor alloc] init];
         Doctor *doctor = [[Doctor alloc] initWithName:@"Doctor Bob" AndSpecialization:@"cardiology"];
         Patient *patient = [[Patient alloc] initWithName:@"Sally" Age:52 AndHasValidHealthCard:YES];
+ 
         [patient getSick:symptomContractor];
+       
         [patient askDoctor:doctor];
         [doctor askPatient:patient];
+ 
         [patient requestAppointment:doctor];
-        
+        [doctor treatPatient:patient];
         
             }
     return 0;

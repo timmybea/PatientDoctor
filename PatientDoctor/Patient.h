@@ -16,11 +16,11 @@
 @property (nonatomic, assign) int age;
 @property (nonatomic) BOOL hasValidHealthCard;
 @property (nonatomic) NSString *symptom;
+@property (nonatomic) NSMutableArray *allPrescriptions;
 
 -(instancetype)initWithName:(NSString*)name Age:(int)age AndHasValidHealthCard:(BOOL)hasValidHealthCard;
 -(void)getSick:(SymptomContractor*)symptomContractor;
 -(void)askDoctor:(Doctor*)doctor;
 -(void)requestAppointment:(Doctor*)doctor;
--(void)requestMedication:(Doctor*)doctor;
 
 @end

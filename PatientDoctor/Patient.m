@@ -17,13 +17,14 @@
         _name = name;
         _age = age;
         _hasValidHealthCard = hasValidHealthCard;
+        _allPrescriptions = [[NSMutableArray alloc] init];
 }
     return self;
 }
 
 -(void)getSick:(SymptomContractor*)symptomContractor {
     self.symptom = [symptomContractor symptomGenerator:self];
-    NSLog(@"You have: %@", self.symptom);
+    NSLog(@"%@ has %@!", self.name, self.symptom);
 }
 
 -(void)askDoctor:(Doctor*)doctor {
@@ -35,11 +36,7 @@
     [doctor makeAppointment:self];
 }
 
--(void)requestMedication:(Doctor*)doctor {
-    if([doctor.appointmentBook containsObject:self.name]) {
-        //DOES NOTHING
-    }
-}
+
 
 
 
